@@ -1,0 +1,16 @@
+server:
+  port: 8080
+logging:
+  level:
+    cn.sysu.ming:
+      info
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ming?serverTimezone=CST
+    username: root
+    password: 123456
+
+mybatis:
+  type-aliases-package: cn.sysu.ming.pojo #开启别名
