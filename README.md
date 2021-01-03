@@ -15,10 +15,9 @@ https://blog.csdn.net/dogHuaMing/article/details/112058153
 1-4. SpringBoot配置自定义拦截器，实现日志管理
 https://blog.csdn.net/dogHuaMing/article/details/112093217
 
-。
-。
-。
-。
-。
-等等
+1-5. SpringBoot---java后端开发人员的神器lombok
+https://blog.csdn.net/dogHuaMing/article/details/112093287
+
+1-6. SpringBoot整合JDBC线程池，整合Mybatis（相关事务控制、通用Mapper）快速实现旧式SSM架构
+https://blog.csdn.net/dogHuaMing/article/details/112134356
 
