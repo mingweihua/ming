@@ -17,6 +17,7 @@ public class TestController {
 
     @RequestMapping("hello")
     public String test() {
+
         log.info("#日志# ======= 测试拦截器---log");
         return "Hello, ming";
     }
