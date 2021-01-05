@@ -14,7 +14,7 @@ class MingHttpApplicationTests {
 
     @Test
     void contextLoads() {
-        Product product = restTemplate.getForObject("http://localhost:8080/product/2",Product.class);
+        Product product = restTemplate.getForObject("http://localhost:8080/product/1",Product.class);
         System.out.println(product);
     }
 
