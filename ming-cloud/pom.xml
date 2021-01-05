@@ -9,6 +9,7 @@
     <modules>
         <module>service</module>
         <module>consumer</module>
+        <module>eureka-server</module>
     </modules>
     <name>ming-cloud</name>
     <packaging>pom</packaging>
@@ -16,7 +17,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.1</version>
+        <version>2.3.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -33,6 +34,8 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!--通用Mapper -->
             <dependency>
