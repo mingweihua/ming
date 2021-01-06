@@ -21,3 +21,11 @@ https://blog.csdn.net/dogHuaMing/article/details/112093287
 1-6. SpringBoot整合JDBC线程池，整合Mybatis（相关事务控制、通用Mapper）快速实现旧式SSM架构
 https://blog.csdn.net/dogHuaMing/article/details/112134356
 
+
+ming-http
+ming-http项目创建是为了测试ming-base作为服务提供者（提供Rest接口）
+即ming-http作为服务调用者，ming-base作为服务提供者
+
+对应的博客地址是
+2-1.SpringCloud前期基础（微服务概念、服务调用方式、Http客户端工具、RestTemplate）
+https://blog.csdn.net/dogHuaMing/article/details/112217098
