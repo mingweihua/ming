@@ -1,5 +1,6 @@
 # ming
 
+# ming-base
 ming-base项目是讲述的是SpringBoot的基础，包括如何快速创建SpringBoot项目，有关SSM架构和各种依赖等等
 对应的博客地址是
 
@@ -22,7 +23,7 @@ https://blog.csdn.net/dogHuaMing/article/details/112093287
 https://blog.csdn.net/dogHuaMing/article/details/112134356
 
 
-ming-http
+# ming-http
 ming-http项目创建是为了测试ming-base作为服务提供者（提供Rest接口）
 即ming-http作为服务调用者，ming-base作为服务提供者
 
