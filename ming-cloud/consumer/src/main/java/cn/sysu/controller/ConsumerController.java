@@ -1,6 +1,8 @@
 package cn.sysu.controller;
 
 import cn.sysu.pojo.Product;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -15,6 +17,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("consumer")
+@DefaultProperties(defaultFallback = "fallbackMethod02")
 public class ConsumerController {
 
     @Autowired
@@ -61,4 +64,41 @@ public class ConsumerController {
         return product;
     }
 
+
+    //代码同上，用于测试hystrix
+    //hystrix方式一，但是需要修改参数返回值，保证参数列表和返回值两个方法都相同。
+    @RequestMapping("/hystrix01/{id}")
+    @HystrixCommand(fallbackMethod = "fallbackMethod01")
+    public String testHystrix01(@PathVariable("id") int id) {
+        log.info("负载均衡--方式1");
+        //根据服务id获取实例
+        ServiceInstance instance = client.choose("service");
+        String url = "http://"+ instance.getHost()+ ":" + instance.getPort()+ "/product/" + id;
+        String product = restTemplate.getForObject(url,String.class);
+        //为了出错
+        int i = 1 / 0;
+        return product;
+    }
+
+    public String fallbackMethod01(int id) {
+        return "不好意思，服务器太拥挤，请稍候访问---方式1";
+    }
+
+    //hystrix方式二，类上配置注解。
+    @RequestMapping("/hystrix02/{id}")
+    @HystrixCommand
+    public String testHystrix02(@PathVariable("id") int id) {
+        log.info("负载均衡--方式1");
+        //根据服务id获取实例
+        ServiceInstance instance = client.choose("service");
+        String url = "http://"+ instance.getHost()+ ":" + instance.getPort()+ "/product/" + id;
+        String product = restTemplate.getForObject(url,String.class);
+        //为了出错
+        int i = 1 / 0;
+        return product;
+    }
+
+    public String fallbackMethod02() {
+        return "不好意思，服务器太拥挤，请稍候访问---方式2";
+    }
 }
